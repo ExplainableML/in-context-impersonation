@@ -17,9 +17,9 @@
 
 ## Description
 
-This repository is the official implementation of the **NeurIPS 2023 spotlight** _In-Context Impersonation Reveals Large Language Models' Strengths and Biases_ by Leonard Salewski<sup>1</sup>, Stephan Alaniz<sup>1</sup>, Isabel Rio-Torto<sup>2,3</sup>, Eric Schulz<sup>4</sup> and Zeynep Akata<sup>1,5</sup>. A preprint is available on [arXiv](https://arxiv.org/abs/2305.14930).
+This repository is the official implementation of the **NeurIPS 2023 spotlight** _In-Context Impersonation Reveals Large Language Models' Strengths and Biases_ by Leonard Salewski<sup>1,2</sup>, Stephan Alaniz<sup>1,2</sup>, Isabel Rio-Torto<sup>3,4</sup>, Eric Schulz<sup>5</sup> and Zeynep Akata<sup>1,2</sup>. A preprint is available on [arXiv](https://arxiv.org/abs/2305.14930).
 
-<sup>1</sup> University of Tübingen, <sup>2</sup> University of Porto, <sup>3</sup> INESC TEC,<sup>4</sup> Max Planck Institute for Biological Cybernetics, <sup>5</sup> Max Planck Instituate for Intelligent Systems
+<sup>1</sup> University of Tübingen, <sup>2</sup> Tübingen AI Center, <sup>3</sup>  University of Porto, <sup>4</sup> INESC TEC, <sup>5</sup> Max Planck Institute for Biological Cybernetics
 
 ## 📌 Abstract
 

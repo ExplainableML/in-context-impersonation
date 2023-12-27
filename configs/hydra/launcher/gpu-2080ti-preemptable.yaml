@@ -1,0 +1,6 @@
+defaults:
+  - default_launcher
+  - _self_
+
+partition: gpu-2080ti-preemptable
+timeout_min: 4320 # 3d

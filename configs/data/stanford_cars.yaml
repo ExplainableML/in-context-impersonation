@@ -1,0 +1,10 @@
+_target_: src.data.stanford_cars_datamodule.StanfordCarsDataModule
+batch_size: 512
+num_workers: 8
+pin_memory: False
+
+dataset_partial:
+  _target_: src.data.dataset.stanford_cars.StanfordCars
+  _partial_: True
+  num_classes: 196
+  cache_dir: ${paths.cache_dir}

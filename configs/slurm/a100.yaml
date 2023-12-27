@@ -1,0 +1,7 @@
+# @package _global_
+defaults:
+  - override /hydra/launcher: gpu-a100
+
+# multirun is needed for submitit runs
+hydra:
+  mode: MULTIRUN

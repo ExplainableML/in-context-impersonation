@@ -1,0 +1,72 @@
+# reasons you might want to use `environment.yaml` instead of `requirements.txt`:
+# - pip installs packages in a loop, without ensuring dependencies across all packages
+#   are fulfilled simultaneously, but conda achieves proper dependency control across
+#   all packages
+# - conda allows for installing packages without requiring certain compilers or
+#   libraries to be available in the system, since it installs precompiled binaries
+
+name: characters11
+
+channels:
+  - nvidia
+  - pytorch
+  - conda-forge
+  - defaults
+
+# it is strongly recommended to specify versions of packages installed through conda
+# to avoid situation when version-unspecified packages install their latest major
+# versions which can sometimes break things
+
+# current approach below keeps the dependencies in the same major versions across all
+# users, but allows for different minor and patch versions of packages where backwards
+# compatibility is usually guaranteed
+
+dependencies:
+  - mamba=1.*
+  - pytorch=2.*
+  - torchvision=0.*
+  - pytorch-cuda=11.8.*
+  - lightning=2.*
+  - torchmetrics=0.*
+  - hydra-core=1.*
+  - rich=13.*
+  - pre-commit=3.*
+  - pytest=7.*
+  - pytest-xdist=3.*
+
+  # --------- loggers --------- #
+  - wandb=0.*
+  # - neptune-client
+  # - mlflow
+  # - comet-ml
+
+  # --------- code health --------- #
+  - black=23.*
+  - icontract=2.*
+  - mypy=1.*
+  - rope=1.*
+
+  # --------- libraries --------- #
+  - openai=0.*
+  - pandas=2.*
+  - seaborn=0.*
+  - spacy=3.*
+  - transformers=4.*
+  - textstat==0.*
+  - tqdm=4.*
+
+  - pip>=23
+  - pip:
+      - bitsandbytes==0.*
+      - farrow-and-ball==0.*
+      - fschat==0.2.23
+      - google-cloud-aiplatform>=1.26.1
+      - hydra-optuna-sweeper==1.*
+      - hydra-colorlog==1.*
+      - hydra-submitit-launcher==1.*
+      - git+https://github.com/Lightning-AI/lit-llama.git
+      - langchain==0.*
+      - pyrootutils==1.*
+      - sentence_transformers==2.*
+      - slurm-gpustat==0.*
+      - gymnasium==0.*

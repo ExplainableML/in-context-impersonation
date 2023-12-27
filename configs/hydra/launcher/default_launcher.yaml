@@ -1,0 +1,9 @@
+defaults:
+  - submitit_slurm
+  - _self_
+
+gres: "gpu:1"
+gpus_per_task: 1
+additional_parameters:
+  mail-type: ALL,ARRAY_TASKS
+

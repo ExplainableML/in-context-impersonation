@@ -1,0 +1,58 @@
+defaults:
+  - llm: vicuna13b
+  - _self_
+
+_target_: src.models.bandit_otf_module.BanditTaskOnTheFlyLitModule
+
+optimizer:
+  _target_: torch.optim.Adam
+  _partial_: true
+  lr: 0.001
+  weight_decay: 0.0
+
+scheduler:
+  _target_: torch.optim.lr_scheduler.ReduceLROnPlateau
+  _partial_: true
+  mode: min
+  factor: 0.1
+  patience: 10
+
+characters:
+  [
+    "1 year old",
+    "2 year old",
+    "3 year old",
+    "4 year old",
+    "5 year old",
+    "6 year old",
+    "7 year old",
+    "8 year old",
+    "9 year old",
+    "10 year old",
+    "11 year old",
+    "12 year old",
+    "13 year old",
+    "14 year old",
+    "15 year old",
+    "16 year old",
+    "17 year old",
+    "18 year old",
+    "19 year old",
+    "20 year old",
+    "22 year old",
+    "24 year old",
+    "26 year old",
+    "28 year old",
+    "30 year old",
+    "35 year old",
+    "40 year old",
+    "45 year old",
+    "50 year old",
+    "55 year old",
+    "60 year old",
+  ]
+
+num_classes: ${data.dataset_partial.num_classes}
+seed: ${seed}
+
+data_path: ${paths.data_dir}

@@ -1,0 +1,10 @@
+_target_: src.data.cub_datamodule.CUBDataModule
+batch_size: 512
+num_workers: 8
+pin_memory: False
+
+dataset_partial:
+  _target_: src.data.dataset.cub.Cub2011
+  _partial_: True
+  root: ${paths.data_dir}CUB
+  num_classes: 200

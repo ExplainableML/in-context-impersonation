@@ -1,0 +1,12 @@
+_target_: src.data.bandit_datamodule.BanditDataModule
+batch_size: 1
+num_workers: 1
+pin_memory: False
+
+dataset_partial:
+  _target_: src.data.dataset.bandit.Bandit
+  _partial_: True
+  num_classes: 2
+  num_games: 2000
+  num_trials: 10
+  cache_dir: ${paths.cache_dir}

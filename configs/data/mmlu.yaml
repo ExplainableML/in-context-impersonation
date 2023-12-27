@@ -1,0 +1,11 @@
+_target_: src.data.mmlu_datamodule.MMLUDataModule
+batch_size: 16
+num_workers: 8
+pin_memory: False
+
+dataset_partial:
+  _target_: src.data.dataset.mmlu.MMLU
+  _partial_: True
+  num_classes: 4
+  task: machine_learning
+  cache_dir: ${paths.cache_dir}

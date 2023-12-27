@@ -1,0 +1,50 @@
+defaults:
+  - llm: vicuna13b
+  - _self_
+
+_target_: src.models.clip_dotf_module.CLIPDescriptionsOnTheFlyLitModule
+
+optimizer:
+  _target_: torch.optim.Adam
+  _partial_: true
+  lr: 0.001
+  weight_decay: 0.0
+
+scheduler:
+  _target_: torch.optim.lr_scheduler.ReduceLROnPlateau
+  _partial_: true
+  mode: min
+  factor: 0.1
+  patience: 10
+
+characters:
+  [
+    "2 year old",
+    "4 year old",
+    "7 year old",
+    "13 year old",
+    "20 year old",
+    "white person",
+    "black person",
+    "man",
+    "woman",
+    "ornithologist",
+    "car mechanic",
+  ]
+
+num_classes: ${data.dataset_partial.num_classes}
+seed: ${seed}
+
+model:
+  _target_: transformers.AutoModel.from_pretrained
+  pretrained_model_name_or_path: openai/clip-vit-base-patch32
+  cache_dir: ${paths.cache_dir}
+  torch_dtype: auto
+
+processor:
+  _target_: transformers.AutoProcessor.from_pretrained
+  pretrained_model_name_or_path: ${model.model.pretrained_model_name_or_path}
+  cache_dir: ${paths.cache_dir}
+
+data_path: ${paths.data_dir}
+impersonation_command: "If you were a"

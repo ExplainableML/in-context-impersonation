@@ -1,0 +1,2 @@
+_target_: src.models.components.vicuna.VicundaModel
+model_path: ${paths.shared_dir}shared/vicuna/13B

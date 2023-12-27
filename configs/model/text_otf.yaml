@@ -1,0 +1,86 @@
+defaults:
+  - llm: vicuna13b
+  - _self_
+
+_target_: src.models.text_otf_module.LanguageTaskOnTheFlyLitModule
+
+optimizer:
+  _target_: torch.optim.Adam
+  _partial_: true
+  lr: 0.001
+  weight_decay: 0.0
+
+scheduler:
+  _target_: torch.optim.lr_scheduler.ReduceLROnPlateau
+  _partial_: true
+  mode: min
+  factor: 0.1
+  patience: 10
+
+characters:
+  [
+    "prehistory expert",
+    "elementary mathematics expert",
+    "computer security expert",
+    "moral disputes expert",
+    "logical fallacies expert",
+    "high school european history expert",
+    "high school physics expert",
+    "high school computer science expert",
+    "machine learning expert",
+    "college mathematics expert",
+    "world religions expert",
+    "professional law expert",
+    "jurisprudence expert",
+    "astronomy expert",
+    "abstract algebra expert",
+    "high school statistics expert",
+    "philosophy expert",
+    "anatomy expert",
+    "college physics expert",
+    "college computer science expert",
+    "conceptual physics expert",
+    "electrical engineering expert",
+    "international law expert",
+    "college chemistry expert",
+    "moral scenarios expert",
+    "high school mathematics expert",
+    "high school biology expert",
+    "high school world history expert",
+    "formal logic expert",
+    "college biology expert",
+    "high school chemistry expert",
+    "high school us history expert",
+    "econometrics expert",
+    "high school geography expert",
+    "high school government and politics expert",
+    "high school macroeconomics expert",
+    "high school microeconomics expert",
+    "high school psychology expert",
+    "human sexuality expert",
+    "professional psychology expert",
+    "public relations expert",
+    "security studies expert",
+    "sociology expert",
+    "US foreign policy expert",
+    "business ethics expert",
+    "clinical knowledge expert",
+    "college medicine expert",
+    "global facts expert",
+    "human aging expert",
+    "management expert",
+    "marketing expert",
+    "medical genetics expert",
+    "miscellaneous expert",
+    "nutrition expert",
+    "professional accounting expert",
+    "professional medicine expert",
+    "virology expert",
+  ]
+
+template: "Please consider the following multiple-choice question and the four answer options A, B, C, and D.\nQuestion: {context}\nIf you were a {character}, which answer would you choose?"
+
+num_classes: ${data.dataset_partial.num_classes}
+seed: ${seed}
+
+data_path: ${paths.data_dir}
